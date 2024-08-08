@@ -1,4 +1,4 @@
-# Template React + Vite + TS + Style-Componets
+# Template React + Vite + TS + Style-Components
 
 ## Baixar template
 
