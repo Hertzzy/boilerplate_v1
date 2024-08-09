@@ -1,8 +1,16 @@
+import styled from 'styled-components';
+import HeaderView from '../components/HeaderView';
+
+const HomeViewContainer = styled.div`
+  height: 100%;
+`;
 
 const Home = () => {
   return (
-    <h1>Home</h1>
-  )
-}
+    <HomeViewContainer>
+      <HeaderView pageTitle="Home" />
+    </HomeViewContainer>
+  );
+};
 
-export default Home
+export default Home;

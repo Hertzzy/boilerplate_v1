@@ -33,6 +33,7 @@ const DropdownItem = styled(Link)<{ isActive?: boolean }>`
 `;
 
 const NavLinkRegisters: React.FC = () => {
+  // Link menu ativo
   const location = useLocation();
 
   return (
@@ -41,10 +42,10 @@ const NavLinkRegisters: React.FC = () => {
         Cliente
       </DropdownItem>
       <DropdownItem to="/supplier-search" isActive={location.pathname === '/supplier-search'}>
-        Fornecedor
+        Funcionário
       </DropdownItem>
       <DropdownItem to="/employee-search" isActive={location.pathname === '/employee-search'}>
-        Funcionário
+        Fornecedor
       </DropdownItem>
       <DropdownItem to="/user-group-search" isActive={location.pathname === '/user-group-search'}>
         Grupo de Usuários

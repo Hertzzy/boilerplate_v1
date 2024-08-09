@@ -1,0 +1,31 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #f5f5f5;
+  font-weight: 700;
+}
+
+.dashboard {
+  display: flex;
+  flex-direction: row;
+  height: 987h;
+}
+
+.dashboard--content {
+  flex: 1;
+  padding: 20px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.dashboard.dark-mode .dashboard--content {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+.dashboard.light-mode .dashboard--content {
+  background-color: #ffffff;
+  color: #333333;
+}

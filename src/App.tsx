@@ -1,13 +1,16 @@
-import AppRouter from "./router/AppRouter"
-import "./assets/css/main.css"
+import AppRouter from './router/AppRouter';
+import './assets/css/main.css';
+// import './assets/css/themedarkmode.css';
+import { ThemeProvider } from './context/ThemeContext';
 
 function App() {
-
   return (
     <>
-      <AppRouter />
+      <ThemeProvider>
+        <AppRouter />
+      </ThemeProvider>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

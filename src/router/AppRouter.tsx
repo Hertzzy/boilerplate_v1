@@ -1,7 +1,7 @@
-// AppRouter.tsx
+// src/routes/AppRouter.tsx
 
 import React, { useState, useEffect } from 'react';
-import { Routes, Route, BrowserRouter as Router, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import LoginView from '../views/LoginView';
 import HomeView from '../views/HomeView';
 import Sidebar from '../components/Sidebar';
@@ -13,11 +13,13 @@ import SuplierSearch from '../views/search/SuplierSearch';
 import UserGroupSearch from '../views/search/UserGroupSearch';
 import UserSearch from '../views/search/UserSearch';
 import SettingsView from '../views/SettingsView';
-import Loading from '../components/alerts/loading';
+import Loading from '../components/alerts/Loading';
+import { useTheme } from '../context/ThemeContext'; // Importar o hook de tema
 
 const DashboardLayout: React.FC = () => {
   const location = useLocation();
   const [loading, setLoading] = useState(false);
+  const { isDarkMode } = useTheme(); // Obter o estado do tema
 
   useEffect(() => {
     setLoading(true);
@@ -32,7 +34,7 @@ const DashboardLayout: React.FC = () => {
   const showSidebar = location.pathname !== '/login';
 
   return (
-    <div className="dashboard">
+    <div className={`dashboard ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
       {showSidebar && <Sidebar />}
       <div className="dashboard--content">
         {loading && <Loading />}
