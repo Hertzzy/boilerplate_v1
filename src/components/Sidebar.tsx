@@ -16,12 +16,13 @@ import {
 import { Link, useLocation } from 'react-router-dom';
 import NavLinks from './nav/NavLinks';
 import NavLinkRegisters from './nav/NavLinkRegisters';
-import { useTheme } from '../context/ThemeContext'; // Importar o hook de tema
+import { useTheme } from '../context/ThemeContext';
 
 interface SidebarProps {
   $isOpen: boolean;
 }
 
+// CSS DO COMPONENTE SIDEBAR
 const SidebarContainer = styled.div<{ $isOpen: boolean; $isDarkMode: boolean }>`
   width: ${({ $isOpen }) => ($isOpen ? '250px' : '80px')};
   background-color: ${({ $isDarkMode }) => ($isDarkMode ? '#333' : '#fff')};
@@ -91,9 +92,13 @@ const ToggleButton = styled.button<{ $isOpen: boolean }>`
 `;
 
 const Sidebar: React.FC = () => {
+  // Menu aberto
   const [isOpen, setIsOpen] = useState(true);
+  // Menu Dropdown
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  // Location usado para deixar os links ativos quando estiver na página
   const location = useLocation();
+  //Darkmode
   const { isDarkMode } = useTheme();
 
   const toggleSidebar = () => {
