@@ -25,7 +25,7 @@ const DashboardLayout: React.FC = () => {
     setLoading(true);
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 300); // Tempo de simulação de carregamento
+    }, 500); // Tempode carregamento
 
     return () => clearTimeout(timer);
   }, [location.pathname]);
