@@ -1,23 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
-import { NavLink } from 'react-router-dom'; // Use NavLink
+import { NavLink } from 'react-router-dom';
 import { FaImage, FaUnlock, FaSignOutAlt } from 'react-icons/fa';
+import { useTheme } from '../../context/ThemeContext';
 
-const DropdownContainer = styled.div`
+const DropdownContainer = styled.div<{ $isDarkMode: boolean }>`
   width: 100%;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
-  background-color: #fff;
-  transition: opacity 0.3s; /* Animação opcional para abertura e fechamento */
+  background-color: ${({ $isDarkMode }) => ($isDarkMode ? '#333' : '#fff')};
+  transition: opacity 0.3s;
 `;
 
-const DropdownItem = styled(NavLink)`
-  // Use NavLink
+const DropdownItem = styled(NavLink)<{ $isDarkMode: boolean }>`
   border-radius: 5px;
   padding: 10px 20px;
-  color: #536d82;
-  background-color: #fff;
+  color: ${({ $isDarkMode }) => ($isDarkMode ? '#ccc' : '#536d82')};
+  background-color: ${({ $isDarkMode }) => ($isDarkMode ? '#444' : '#fff')};
   cursor: pointer;
   text-decoration: none;
   display: flex;
@@ -41,17 +41,19 @@ const DropdownItem = styled(NavLink)`
 `;
 
 const NavLinks: React.FC = () => {
+  const { isDarkMode } = useTheme();
+
   return (
-    <DropdownContainer>
-      <DropdownItem to="/update-photo">
+    <DropdownContainer $isDarkMode={isDarkMode}>
+      <DropdownItem to="/update-photo" $isDarkMode={isDarkMode}>
         <FaImage className="dropdown-icons" />
         Alterar foto
       </DropdownItem>
-      <DropdownItem to="/update-user-password">
+      <DropdownItem to="/update-user-password" $isDarkMode={isDarkMode}>
         <FaUnlock className="dropdown-icons" />
         Alterar senha
       </DropdownItem>
-      <DropdownItem to="/logout">
+      <DropdownItem to="/logout" $isDarkMode={isDarkMode}>
         <FaSignOutAlt className="dropdown-icons" />
         Sair
       </DropdownItem>

@@ -11,9 +11,7 @@ import {
   FaArchive,
   FaChevronDown,
   FaChevronUp,
-  FaBox,
-  FaMoon,
-  FaSun
+  FaBox
 } from 'react-icons/fa';
 import { Link, useLocation } from 'react-router-dom';
 import NavLinks from './nav/NavLinks';
@@ -92,22 +90,11 @@ const ToggleButton = styled.button<{ $isOpen: boolean }>`
   transition: left 0.3s;
 `;
 
-const ThemeToggleButton = styled.button<{ $isDarkMode: boolean }>`
-  position: absolute;
-  bottom: 70px;
-  background: none;
-  border: none;
-  color: #536d82;
-  font-size: 24px;
-  cursor: pointer;
-  transition: left 0.3s;
-`;
-
 const Sidebar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(true);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const location = useLocation();
-  const { isDarkMode, toggleTheme } = useTheme();
+  const { isDarkMode } = useTheme();
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
