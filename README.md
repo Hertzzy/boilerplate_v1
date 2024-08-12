@@ -6,7 +6,7 @@
 git pull git@github.com:Hertzzy/boilerplate_v1.git
 ```
 
-## Instalação nodemodles
+## Instalação nodemodules
 
 ```
 npm install

@@ -6,17 +6,20 @@ interface HeaderViewProps {
   pageTitle: string;
 }
 
-const HeaderContainer = styled.header`
+const HeaderContainer = styled.header<{ $isDarkMode: boolean }>`
   display: flex;
   justify-content: space-between;
+  color: ${({ $isDarkMode }) => ($isDarkMode ? '#fff' : '#536d82')}; // Cor do texto baseado no tema
 `;
 
-const PageTitle = styled.h1``;
+const PageTitle = styled.h1<{ $isDarkMode: boolean }>`
+  color: ${({ $isDarkMode }) => ($isDarkMode ? '#fff' : '#536d82')}; // Cor do título baseado no tema
+`;
 
 const ThemeToggleButton = styled.button<{ $isDarkMode: boolean }>`
   background: none;
   border: none;
-  color: ${({ $isDarkMode }) => ($isDarkMode ? '#fff' : '#536d82')}; // Cor do ícone (dourado no modo escuro)
+  color: ${({ $isDarkMode }) => ($isDarkMode ? '#fff' : '#536d82')}; // Cor do ícone baseado no tema
   font-size: 24px;
   cursor: pointer;
   transition: left 0.3s;
@@ -26,8 +29,8 @@ const ThemeToggleButton = styled.button<{ $isDarkMode: boolean }>`
 const HeaderView: React.FC<HeaderViewProps> = ({ pageTitle }) => {
   const { isDarkMode, toggleTheme } = useTheme();
   return (
-    <HeaderContainer>
-      <PageTitle>{pageTitle}</PageTitle>
+    <HeaderContainer $isDarkMode={isDarkMode}>
+      <PageTitle $isDarkMode={isDarkMode}>{pageTitle}</PageTitle>
       <ThemeToggleButton $isDarkMode={isDarkMode} onClick={toggleTheme}>
         {isDarkMode ? <FaSun /> : <FaMoon />}
       </ThemeToggleButton>

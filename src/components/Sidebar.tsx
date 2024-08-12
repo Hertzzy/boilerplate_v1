@@ -79,7 +79,7 @@ const MenuItem = styled(Link)<{ $isOpen: boolean; isActive?: boolean; $isDarkMod
   }
 `;
 
-const ToggleButton = styled.button<{ $isOpen: boolean }>`
+const ToggleButton = styled.button<{ $isOpen: boolean; $isDarkMode: boolean }>`
   position: absolute;
   bottom: 20px;
   left: ${({ $isOpen }) => ($isOpen ? '200px' : '28px')};
@@ -89,6 +89,10 @@ const ToggleButton = styled.button<{ $isOpen: boolean }>`
   font-size: 24px;
   cursor: pointer;
   transition: left 0.3s;
+
+  .menu-icon {
+    color: ${({ $isDarkMode }) => ($isDarkMode ? '#fff' : '#536d82')};
+  }
 `;
 
 const Sidebar: React.FC = () => {
@@ -111,7 +115,7 @@ const Sidebar: React.FC = () => {
 
   return (
     <SidebarContainer $isOpen={isOpen} $isDarkMode={isDarkMode}>
-      <ToggleButton $isOpen={isOpen} onClick={toggleSidebar}>
+      <ToggleButton $isOpen={isOpen} onClick={toggleSidebar} $isDarkMode={isDarkMode}>
         {isOpen ? <FaAngleLeft className="menu-icon" /> : <FaAngleRight className="menu-icon" />}
       </ToggleButton>
 
