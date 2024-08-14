@@ -3,7 +3,7 @@
 ## Baixar template
 
 ```
-git pull git@github.com:Hertzzy/boilerplate_v1.git
+git clone git@github.com:Hertzzy/boilerplate_v1.git
 ```
 
 ## Instalação nodemodules

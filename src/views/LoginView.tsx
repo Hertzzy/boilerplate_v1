@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import Input from '../components/form/Input';
 import Button from '../components/buttons/Button';
+import { useAuth } from '../context/AuthContext'; // Importe o useAuth
 
 const LoginContainer = styled.div`
   text-align: center;
@@ -30,10 +31,17 @@ const FormGroup = styled.div`
 const LoginView: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const { login } = useAuth(); // Use o login do contexto
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle login logic here
+    try {
+      await login(email, password);
+      // Redirecionar o usuário após o login bem-sucedido
+    } catch (error) {
+      console.error('Erro de login:', error);
+      // Exibir mensagem de erro para o usuário
+    }
   };
 
   return (
