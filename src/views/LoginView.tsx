@@ -1,10 +1,9 @@
-// views/LoginView.tsx
-
+// src/views/LoginView.tsx
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Input from '../components/form/Input';
 import Button from '../components/buttons/Button';
-import { useAuth } from '../context/AuthContext'; // Importe o useAuth
+import { useAuth } from '../context/AuthContext';
 
 const LoginContainer = styled.div`
   text-align: center;
@@ -29,14 +28,15 @@ const FormGroup = styled.div`
 `;
 
 const LoginView: React.FC = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const { login } = useAuth(); // Use o login do contexto
+  const [email, setEmail] = useState<string>('');
+  const [password_hash, setPassword_hash] = useState<string>('');
+  const { login } = useAuth();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
     try {
-      await login(email, password);
+      await login(email, password_hash);
       // Redirecionar o usuário após o login bem-sucedido
     } catch (error) {
       console.error('Erro de login:', error);
@@ -56,8 +56,8 @@ const LoginView: React.FC = () => {
             <Input
               type="password"
               placeholder="Password"
-              value={password}
-              onChange={e => setPassword(e.target.value)}
+              value={password_hash}
+              onChange={e => setPassword_hash(e.target.value)}
             />
           </FormGroup>
           <Button type="submit" color="#536d82">

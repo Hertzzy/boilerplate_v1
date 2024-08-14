@@ -1,22 +1,20 @@
-// src/components/ProtectedRoute.tsx
-
 import React from 'react';
 import { Navigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
 interface ProtectedRouteProps {
-  element: React.ReactNode;
+  element: React.ReactElement;
 }
 
 const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ element }) => {
-  const { isAuthenticated } = useAuth();
+  const { authenticated } = useAuth();
 
-  if (!isAuthenticated) {
-    // Se o usuário não estiver autenticado, redireciona para a página de login
+  if (!authenticated) {
+    // Se não estiver autenticado, redirecione para a página de login
     return <Navigate to="/login" />;
   }
 
-  return <>{element}</>;
+  return element;
 };
 
 export default ProtectedRoute;

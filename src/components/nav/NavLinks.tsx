@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { FaImage, FaUnlock, FaSignOutAlt } from 'react-icons/fa';
 import { useTheme } from '../../context/ThemeContext';
+import { useAuth } from '../../context/AuthContext';
 
 const DropdownContainer = styled.div<{ $isDarkMode: boolean }>`
   width: 100%;
@@ -40,8 +41,40 @@ const DropdownItem = styled(NavLink)<{ $isDarkMode: boolean }>`
   }
 `;
 
+const LogoutButton = styled.button<{ $isDarkMode: boolean }>`
+  border-radius: 5px;
+  padding: 10px 20px;
+  color: ${({ $isDarkMode }) => ($isDarkMode ? '#ccc' : '#536d82')};
+  background-color: ${({ $isDarkMode }) => ($isDarkMode ? '#444' : '#fff')};
+  cursor: pointer;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s, color 0.3s;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+
+  &:hover {
+    background-color: #536d82;
+    color: #fff;
+  }
+
+  .dropdown-icons {
+    font-size: 1.2rem;
+    margin-right: 15px;
+  }
+`;
+
 const NavLinks: React.FC = () => {
   const { isDarkMode } = useTheme();
+  const { logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout(); // Chama a função de logout
+    navigate('/login'); // Redireciona para a página de login após o logout
+  };
 
   return (
     <DropdownContainer $isDarkMode={isDarkMode}>
@@ -53,10 +86,10 @@ const NavLinks: React.FC = () => {
         <FaUnlock className="dropdown-icons" />
         Alterar senha
       </DropdownItem>
-      <DropdownItem to="/logout" $isDarkMode={isDarkMode}>
+      <LogoutButton onClick={handleLogout} $isDarkMode={isDarkMode}>
         <FaSignOutAlt className="dropdown-icons" />
         Sair
-      </DropdownItem>
+      </LogoutButton>
     </DropdownContainer>
   );
 };

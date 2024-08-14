@@ -22,7 +22,6 @@ interface SidebarProps {
   $isOpen: boolean;
 }
 
-// CSS DO COMPONENTE SIDEBAR
 const SidebarContainer = styled.div<{ $isOpen: boolean; $isDarkMode: boolean }>`
   width: ${({ $isOpen }) => ($isOpen ? '250px' : '80px')};
   background-color: ${({ $isDarkMode }) => ($isDarkMode ? '#333' : '#fff')};
@@ -41,7 +40,7 @@ const MenuLogo = styled.div<SidebarProps>`
   padding: 20px 5px;
 `;
 
-const MenuItem = styled(Link)<{ $isOpen: boolean; isActive?: boolean; $isDarkMode: boolean }>`
+const MenuItem = styled(Link)<{ $isOpen: boolean; $isDarkMode: boolean; 'data-is-active'?: boolean }>`
   width: 100%;
   border-radius: 5px;
   padding: 10px 15px;
@@ -49,9 +48,9 @@ const MenuItem = styled(Link)<{ $isOpen: boolean; isActive?: boolean; $isDarkMod
   justify-content: ${({ $isOpen }) => ($isOpen ? 'flex-start' : 'center')};
   cursor: pointer;
   text-decoration: none;
-  color: ${({ isActive, $isDarkMode }) =>
+  color: ${({ 'data-is-active': isActive, $isDarkMode }) =>
     isActive ? ($isDarkMode ? '#fff' : '#fff') : $isDarkMode ? '#aaa' : '#536d82'};
-  background-color: ${({ isActive, $isDarkMode }) =>
+  background-color: ${({ 'data-is-active': isActive, $isDarkMode }) =>
     isActive ? ($isDarkMode ? '#444' : '#536d82') : $isDarkMode ? '#333' : '#fff'};
   transition: background-color 0.3s, color 0.3s;
 
@@ -96,13 +95,9 @@ const ToggleButton = styled.button<{ $isOpen: boolean; $isDarkMode: boolean }>`
 `;
 
 const Sidebar: React.FC = () => {
-  // Menu aberto
   const [isOpen, setIsOpen] = useState(true);
-  // Menu Dropdown
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-  // Location usado para deixar os links ativos quando estiver na página
   const location = useLocation();
-  //Darkmode
   const { isDarkMode } = useTheme();
 
   const toggleSidebar = () => {
@@ -123,18 +118,12 @@ const Sidebar: React.FC = () => {
         <FaArchive />
       </MenuLogo>
 
-      <MenuItem to="/" $isOpen={isOpen} isActive={location.pathname === '/'} $isDarkMode={isDarkMode}>
+      <MenuItem to="/" $isOpen={isOpen} data-is-active={location.pathname === '/'} $isDarkMode={isDarkMode}>
         <FaHome className="menu-icon" />
         <span>Home</span>
       </MenuItem>
 
-      <MenuItem
-        to="#"
-        $isOpen={isOpen}
-        onClick={() => toggleDropdown('user')}
-        isActive={false}
-        $isDarkMode={isDarkMode}
-      >
+      <MenuItem to="#" $isOpen={isOpen} onClick={() => toggleDropdown('user')} $isDarkMode={isDarkMode}>
         <FaUser className="menu-icon" />
         <span>Usuário</span>
         {isOpen &&
@@ -146,13 +135,7 @@ const Sidebar: React.FC = () => {
       </MenuItem>
       {openDropdown === 'user' && isOpen && <NavLinks />}
 
-      <MenuItem
-        to="#"
-        $isOpen={isOpen}
-        onClick={() => toggleDropdown('register')}
-        isActive={false}
-        $isDarkMode={isDarkMode}
-      >
+      <MenuItem to="#" $isOpen={isOpen} onClick={() => toggleDropdown('register')} $isDarkMode={isDarkMode}>
         <FaBox className="menu-icon" />
         <span>Cadastro</span>
         {isOpen &&
@@ -164,7 +147,12 @@ const Sidebar: React.FC = () => {
       </MenuItem>
       {openDropdown === 'register' && isOpen && <NavLinkRegisters />}
 
-      <MenuItem to="/settings" $isOpen={isOpen} isActive={location.pathname === '/settings'} $isDarkMode={isDarkMode}>
+      <MenuItem
+        to="/settings"
+        $isOpen={isOpen}
+        data-is-active={location.pathname === '/settings'}
+        $isDarkMode={isDarkMode}
+      >
         <FaCog className="menu-icon" />
         <span>Settings</span>
       </MenuItem>
