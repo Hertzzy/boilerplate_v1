@@ -14,7 +14,6 @@ interface AuthContextType {
 interface User {
   id: string;
   email: string;
-  // outras propriedades do usuário
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -26,13 +25,12 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 
   const login = async (email: string, password_hash: string) => {
     const response = await api.post('/auth/login', { email, password_hash });
-    console.log(response);
+    console.log(response.data.message);
     const loggedUser = response.data.user;
     const AUTH_TOKEN = response.data.accessToken;
 
-    localStorage.setItem('user', JSON.stringify(loggedUser));
+    // localStorage.setItem('user', JSON.stringify(loggedUser));
     localStorage.setItem('token', AUTH_TOKEN);
-
     api.defaults.headers.Authorization = `Bearer ${AUTH_TOKEN}`;
 
     setUser(loggedUser);
@@ -40,7 +38,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   };
 
   const logout = () => {
-    localStorage.removeItem('user'); // Remove o usuário do localStorage
+    // localStorage.removeItem('user'); // Remove o usuário do localStorage
     localStorage.removeItem('token'); // Remove o token do localStorage
 
     // Define o Authorization como null para limpar o cabeçalho de autenticação

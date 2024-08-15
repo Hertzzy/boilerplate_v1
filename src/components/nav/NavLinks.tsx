@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { FaImage, FaUnlock, FaSignOutAlt } from 'react-icons/fa';
 import { useTheme } from '../../context/ThemeContext';
 import { useAuth } from '../../context/AuthContext';
+import Loading from '../alerts/Loading';
 
 const DropdownContainer = styled.div<{ $isDarkMode: boolean }>`
   width: 100%;
@@ -70,11 +71,24 @@ const NavLinks: React.FC = () => {
   const { isDarkMode } = useTheme();
   const { logout } = useAuth();
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
   const handleLogout = () => {
-    logout(); // Chama a função de logout
-    navigate('/login'); // Redireciona para a página de login após o logout
+    setLoading(true); // Ativa o loading
+
+    // Simula um pequeno atraso para garantir a exibição do loading
+    setTimeout(() => {
+      logout(); // Chama a função de logout e remove o token
+      setLoading(false); // Desativa o loading depois do logout
+
+      // Redireciona para a página de login após o logout
+      navigate('/login');
+    }, 1000); // 1 segundo de atraso para simular o tempo de processamento
   };
+
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <DropdownContainer $isDarkMode={isDarkMode}>

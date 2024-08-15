@@ -1,8 +1,10 @@
 // src/views/LoginView.tsx
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Use useNavigate para redirecionar o usuário
 import styled from 'styled-components';
 import Input from '../components/form/Input';
 import Button from '../components/buttons/Button';
+import MessageAlert from '../components/alerts/MessageAlert';
 import { useAuth } from '../context/AuthContext';
 
 const LoginContainer = styled.div`
@@ -30,22 +32,37 @@ const FormGroup = styled.div`
 const LoginView: React.FC = () => {
   const [email, setEmail] = useState<string>('');
   const [password_hash, setPassword_hash] = useState<string>('');
+  const [message, setMessage] = useState<string | null>(null);
+  const [messageType, setMessageType] = useState<'success' | 'error'>('error');
   const { login } = useAuth();
+  const navigate = useNavigate(); // Hook para redirecionamento
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    try {
-      await login(email, password_hash);
-      // Redirecionar o usuário após o login bem-sucedido
-    } catch (error) {
-      console.error('Erro de login:', error);
-      // Exibir mensagem de erro para o usuário
-    }
+    login(email, password_hash)
+      .then(() => {
+        setMessageType('success');
+        setMessage('Login bem-sucedido!');
+
+        setTimeout(() => {
+          setMessage(null);
+          navigate('/'); // Redireciona para a página home
+        }, 3000);
+      })
+      .catch((error: any) => {
+        setMessageType('error');
+        setMessage(error.response?.data?.message || 'Erro ao fazer login');
+      });
+  };
+
+  const handleCloseMessage = () => {
+    setMessage(null);
   };
 
   return (
     <LoginContainer>
+      {message && <MessageAlert message={message} type={messageType} onClose={handleCloseMessage} />}
       <LoginForm>
         <h2>Login</h2>
         <form onSubmit={handleSubmit}>
