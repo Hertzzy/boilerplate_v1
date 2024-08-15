@@ -30,7 +30,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     const loggedUser = response.data.user;
     const AUTH_TOKEN = response.data.accessToken;
 
-    // localStorage.setItem('user', JSON.stringify(loggedUser));
+    localStorage.setItem('user', JSON.stringify(loggedUser));
     localStorage.setItem('token', AUTH_TOKEN);
 
     api.defaults.headers.Authorization = `Bearer ${AUTH_TOKEN}`;
