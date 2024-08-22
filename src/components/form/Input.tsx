@@ -1,5 +1,4 @@
 // components/Input.tsx
-
 import React from 'react';
 import styled from 'styled-components';
 
@@ -14,7 +13,7 @@ interface InputProps {
 const StyledInput = styled.input<{ borderColor?: string }>`
   border: 1px solid ${({ borderColor }) => borderColor || '#ccc'};
   border-radius: 5px;
-  padding: 10px;
+  padding: 6px;
   font-size: 16px;
   width: 100%;
   box-sizing: border-box;

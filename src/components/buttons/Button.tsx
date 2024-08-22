@@ -13,7 +13,7 @@ const StyledButton = styled.button`
   background-color: #536d82;
   color: white;
   border: none;
-  padding: 10px 0px;
+  padding: 10px 20px; // Ajuste o padding para um tamanho menor
   border-radius: 4px;
   font-size: 16px;
   cursor: pointer;
@@ -22,7 +22,7 @@ const StyledButton = styled.button`
   align-items: center;
   justify-content: center;
   gap: 8px;
-  width: 100%;
+  width: auto; // Altere para auto, para que o botão ajuste de acordo com o conteúdo
 
   &:hover {
     background-color: #465c6e;

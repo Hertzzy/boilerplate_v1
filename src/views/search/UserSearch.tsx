@@ -1,15 +1,16 @@
-import styled from 'styled-components';
+import Button from '@mui/material/Button';
 import HeaderView from '../../components/HeaderView';
-
-const HomeViewContainer = styled.div`
-  height: 100%;
-`;
+import DataTable from '../../components/Table/DataTable';
 
 const UserSearch = () => {
   return (
-    <HomeViewContainer>
+    <>
       <HeaderView pageTitle="Pesquisar Usuário" />
-    </HomeViewContainer>
+      <form>
+        <Button variant="contained">Contained</Button>
+      </form>
+      <DataTable />
+    </>
   );
 };
 
