@@ -1,39 +1,42 @@
-// components/Button.tsx
-
+// src/components/buttons/Button.tsx
 import React from 'react';
 import styled from 'styled-components';
 
 interface ButtonProps {
-  type?: 'button' | 'submit' | 'reset'; // Tipos válidos para o botão
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  onClick?: () => void;
+  type?: 'button' | 'submit' | 'reset';
+  disabled?: boolean;
   children: React.ReactNode;
-  color?: string;
-  textColor?: string;
 }
 
-const StyledButton = styled.button<ButtonProps>`
-  background-color: ${({ color }) => color || '#536d82'};
-  color: ${({ textColor }) => textColor || '#fff'};
+const StyledButton = styled.button`
+  background-color: #536d82;
+  color: white;
   border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
+  padding: 10px 0px;
+  border-radius: 4px;
   font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   width: 100%;
 
   &:hover {
-    background-color: ${({ color }) => (color ? `${color}cc` : '#4a5c73')};
+    background-color: #465c6e;
   }
 
-  &:focus {
-    outline: none;
+  &:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
   }
 `;
 
-const Button: React.FC<ButtonProps> = ({ type = 'button', onClick, children, color, textColor }) => {
+const Button: React.FC<ButtonProps> = ({ onClick, type = 'button', disabled, children }) => {
   return (
-    <StyledButton type={type} onClick={onClick} color={color} textColor={textColor}>
+    <StyledButton onClick={onClick} type={type} disabled={disabled}>
       {children}
     </StyledButton>
   );

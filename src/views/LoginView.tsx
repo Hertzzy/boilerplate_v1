@@ -44,6 +44,7 @@ const LoginView: React.FC = () => {
       .then(() => {
         setMessageType('success');
         setMessage('Login bem-sucedido!');
+        navigate('/'); // Redireciona para a página home
 
         setTimeout(() => {
           setMessage(null);
