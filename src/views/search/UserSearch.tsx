@@ -63,6 +63,7 @@ const TableContainer = styled.div`
 const UserSearch = () => {
   const [rows, setRows] = useState<any[]>([]);
 
+  // teste
   useEffect(() => {
     const fetchData = async () => {
       try {
