@@ -1,0 +1,7 @@
+{
+  "dataGrid": {
+    "noRowsLabel": "Nenhum resultado",
+    "errorOverlayDefaultLabel": "Ocorreu um erro.",
+    "footerTotalRows": "Total de linhas"
+  }
+}
