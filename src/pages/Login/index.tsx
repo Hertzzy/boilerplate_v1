@@ -1,41 +1,24 @@
-// src/views/LoginView.tsx
+// src/pages/Login/index.tsx
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Use useNavigate para redirecionar o usuário
-import styled from 'styled-components';
-import Input from '../components/form/Input';
-import Button from '../components/buttons/Button';
-import MessageAlert from '../components/alerts/MessageAlert';
-import { useAuth } from '../context/AuthContext';
-
-const LoginContainer = styled.div`
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #f4f4f4;
-`;
-
-const LoginForm = styled.div`
-  background: #fff;
-  padding: 40px;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 400px;
-`;
-
-const FormGroup = styled.div`
-  margin-bottom: 20px;
-`;
+import { Navigate, useNavigate } from 'react-router-dom';
+import Input from '../../components/form/Input';
+import Button from '../../components/buttons/Button';
+import MessageAlert from '../../components/alerts/MessageAlert';
+import { useAuth } from '../../context/AuthContext';
+import { LoginContainer, LoginForm, FormGroup } from './LoginStyles';
 
 const LoginView: React.FC = () => {
   const [email, setEmail] = useState<string>('');
   const [password_hash, setPassword_hash] = useState<string>('');
   const [message, setMessage] = useState<string | null>(null);
   const [messageType, setMessageType] = useState<'success' | 'error'>('error');
-  const { login } = useAuth();
-  const navigate = useNavigate(); // Hook para redirecionamento
+  const { login, authenticated } = useAuth();
+  const navigate = useNavigate();
+
+  // Redireciona se o usuário já estiver autenticado
+  if (authenticated) {
+    return <Navigate to="/" />;
+  }
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -78,9 +61,7 @@ const LoginView: React.FC = () => {
               onChange={e => setPassword_hash(e.target.value)}
             />
           </FormGroup>
-          <Button type="submit" color="#536d82">
-            Login
-          </Button>
+          <Button type="submit">Login</Button>
         </form>
       </LoginForm>
     </LoginContainer>

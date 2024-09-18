@@ -23,17 +23,15 @@ h6 {
 
 .dashboard {
   display: flex;
-  margin: 10px;
+  margin: 0px;
 }
 
 .dashboard--content {
   background-color: #fff;
   flex: 1;
-  border-radius: 10px;
+  border-radius: 0px;
   padding: 1rem;
   gap: 1.5rem;
-
-  margin-left: 10px;
 }
 
 .dashboard.dark-mode .dashboard--content {

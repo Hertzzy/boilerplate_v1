@@ -1,16 +1,16 @@
 import styled from 'styled-components';
-import HeaderView from '../components/HeaderView';
+import HeaderView from '../../components/Headers';
 
-const HomeViewContainer = styled.div`
+const Container = styled.div`
   height: 100%;
 `;
 
 const SettingsView = () => {
   return (
-    <HomeViewContainer>
+    <Container>
       <HeaderView pageTitle="Configurações" />
       <p>Welcome to the Settings page!</p>
-    </HomeViewContainer>
+    </Container>
   );
 };
 

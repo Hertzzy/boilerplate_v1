@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router';
-import LoginView from '../views/LoginView';
+import LoginView from '../pages/Login/index';
 import DashboardLayout from './DashboardLayout';
 
 const AppRouter = () => {
