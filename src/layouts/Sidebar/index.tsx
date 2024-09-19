@@ -13,10 +13,10 @@ import {
   FaSignOutAlt
 } from 'react-icons/fa';
 import NavLinks from '../../components/dropdowns'; // Importando o NavLinks correto
-import { SidebarContainer, MenuLogo, MenuItem, ToggleButton, LogoutButton } from './SidebarStyle';
+import { SidebarContainer, MenuLogo, MenuItem, ToggleButton } from './SidebarStyle';
 import { useAuth } from '../../context/AuthContext';
 import { useNavigate } from 'react-router';
-import Loading from '../../components/alerts/Loading';
+import Loading from '../../components/alerts/loading';
 
 const Sidebar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(true);
@@ -97,10 +97,10 @@ const Sidebar: React.FC = () => {
         <span>Configurações</span>
       </MenuItem>
 
-      <LogoutButton onClick={handleLogout}>
-        <FaSignOutAlt className="dropdown-icons" />
-        Sair
-      </LogoutButton>
+      <MenuItem to="#" onClick={handleLogout} $isOpen={isOpen}>
+        <FaSignOutAlt className="menu-icon" />
+        <span>Sair</span>
+      </MenuItem>
     </SidebarContainer>
   );
 };

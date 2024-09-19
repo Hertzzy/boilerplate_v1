@@ -3,7 +3,7 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import HomeView from '../pages/Home';
 import Sidebar from '../layouts/Sidebar';
 import Settings from '../pages/Settings';
-import Loading from '../components/alerts/Loading';
+import Loading from '../components/alerts/loading';
 import ProtectedRoute from './ProtectRoute';
 
 const DashboardLayout: React.FC = () => {

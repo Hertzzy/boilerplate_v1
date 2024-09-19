@@ -7,11 +7,6 @@ interface SidebarProps {
   $isOpen: boolean;
 }
 
-interface DropdownProps {
-  // Defina aqui as propriedades necessárias
-  $isOpen?: boolean;
-}
-
 export const SidebarContainer = styled.div<SidebarProps>`
   width: ${({ $isOpen }) => ($isOpen ? '250px' : '80px')};
   background-color: #fff;
@@ -81,30 +76,5 @@ export const ToggleButton = styled.button<{ $isOpen: boolean }>`
 
   .menu-icon {
     color: '#536d82';
-  }
-`;
-
-export const LogoutButton = styled.button<DropdownProps>`
-  width: 100%;
-  padding: 10px 20px;
-  color: #536d82;
-  background-color: #fff;
-  cursor: pointer;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  transition: background-color 0.3s, color 0.3s;
-  border: none;
-  outline: none;
-  font-size: 1rem;
-
-  &:hover {
-    background-color: #536d82;
-    color: #fff;
-  }
-
-  .dropdown-icons {
-    font-size: 1.2rem;
-    margin-right: 15px;
   }
 `;

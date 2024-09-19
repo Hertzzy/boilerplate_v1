@@ -1,7 +1,6 @@
-import React from 'react';
 import styled from 'styled-components';
 
-const Overlay = styled.div`
+export const Overlay = styled.div`
   position: fixed;
   top: 0;
   left: 0;
@@ -14,7 +13,7 @@ const Overlay = styled.div`
   z-index: 9999;
 `;
 
-const Spinner = styled.div`
+export const Spinner = styled.div`
   border: 8px solid #f3f3f3; /* Light grey */
   border-top: 8px solid #536d82; /* Blue */
   border-radius: 50%;
@@ -31,13 +30,3 @@ const Spinner = styled.div`
     }
   }
 `;
-
-const Loading: React.FC = () => {
-  return (
-    <Overlay>
-      <Spinner />
-    </Overlay>
-  );
-};
-
-export default Loading;

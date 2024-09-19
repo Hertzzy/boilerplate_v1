@@ -1,7 +1,5 @@
-// src/components/MenuDropdown/MenuDropdown.tsx
-import React, { useState } from 'react';
+import React from 'react';
 
-import Loading from '../alerts/Loading';
 import { DropdownContainer, DropdownItem } from './DropdownStyles';
 
 interface NavLinkProps {
