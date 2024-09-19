@@ -28,7 +28,6 @@ const DashboardLayout: React.FC = () => {
         {loading && <Loading />}
         <Routes>
           <Route path="/" element={<ProtectedRoute element={<HomeView />} />} />
-          {/* Correção aqui */}
           <Route path="/settings" element={<ProtectedRoute element={<Settings />} />} />
         </Routes>
       </div>
