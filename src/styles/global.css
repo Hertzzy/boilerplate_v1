@@ -43,3 +43,7 @@ h6 {
   background-color: #ffffff;
   color: #333333;
 }
+
+form {
+  margin: 40px;
+}

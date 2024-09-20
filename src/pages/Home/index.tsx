@@ -1,16 +1,15 @@
 import { FaHome } from 'react-icons/fa';
 import Header from '../../components/Headers';
-import { HomeViewContainer } from './HomeStyles';
 import Container from '../../components/container';
+import { useAuth } from '../../context/AuthContext';
 
 const Home = () => {
+  const { user } = useAuth();
   return (
-    <HomeViewContainer>
+    <Container>
       <Header pageTitle="Home" icon={<FaHome />} />
-      <Container>
-        <h1>Home Page</h1>
-      </Container>
-    </HomeViewContainer>
+      <h2>Bem-vindo, {user ? user.name : ' '}!</h2>
+    </Container>
   );
 };
 

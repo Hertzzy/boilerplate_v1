@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
-import HomeView from '../pages/Home';
-import Sidebar from '../layouts/Sidebar';
+import Home from '../pages/Home';
+import Sidebar from '../components/layout/Sidebar';
 import Settings from '../pages/Settings';
-import Loading from '../components/alerts/loading';
+import Loading from '../components/common/Loading';
 import ProtectedRoute from './ProtectRoute';
+import UserProfile from '../pages/Profile/UserProfile';
+import UsersView from '../pages/User/UsersView';
+import UserCreate from '../pages/User/UsersCreate';
 
 const DashboardLayout: React.FC = () => {
   const location = useLocation();
@@ -27,7 +30,11 @@ const DashboardLayout: React.FC = () => {
       <div className="dashboard--content">
         {loading && <Loading />}
         <Routes>
-          <Route path="/" element={<ProtectedRoute element={<HomeView />} />} />
+          <Route path="/" element={<ProtectedRoute element={<Home />} />} />
+          <Route path="/user-profile" element={<ProtectedRoute element={<UserProfile />} />} />
+          <Route path="/users-view" element={<ProtectedRoute element={<UsersView />} />} />
+          <Route path="/user-create" element={<ProtectedRoute element={<UserCreate />} />} />
+
           <Route path="/settings" element={<ProtectedRoute element={<Settings />} />} />
         </Routes>
       </div>

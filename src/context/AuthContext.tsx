@@ -10,9 +10,17 @@ interface AuthContextType {
   logout: () => void;
 }
 
+interface Role {
+  role_name: string;
+  description: string;
+}
+
 interface User {
   id: string;
   email: string;
+  name: string;
+  status: number;
+  roles: Role[]; // Adicione a propriedade roles aqui
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -42,7 +50,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   const login = async (email: string, password_hash: string) => {
     const response = await api.post('/auth/login', { email, password_hash });
 
-    const loggedUser = response.data.user;
+    const loggedUser: User = response.data.user; // Tipando o loggedUser como User
     const AUTH_TOKEN = response.data.accessToken;
 
     localStorage.setItem('user', JSON.stringify(loggedUser));

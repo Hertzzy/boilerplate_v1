@@ -1,15 +1,13 @@
-// src/components/buttons/Button.tsx
-import React from 'react';
 import styled from 'styled-components';
 
-interface ButtonProps {
+export interface ButtonProps {
   onClick?: () => void;
   type?: 'button' | 'submit' | 'reset';
   disabled?: boolean;
   children: React.ReactNode;
 }
 
-const StyledButton = styled.button`
+export const StyledButton = styled.button`
   background-color: #536d82;
   color: white;
   border: none;
@@ -33,13 +31,3 @@ const StyledButton = styled.button`
     cursor: not-allowed;
   }
 `;
-
-const Button: React.FC<ButtonProps> = ({ onClick, type = 'button', disabled, children }) => {
-  return (
-    <StyledButton onClick={onClick} type={type} disabled={disabled}>
-      {children}
-    </StyledButton>
-  );
-};
-
-export default Button;

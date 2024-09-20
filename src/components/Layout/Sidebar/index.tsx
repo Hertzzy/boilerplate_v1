@@ -12,11 +12,13 @@ import {
   FaBox,
   FaSignOutAlt
 } from 'react-icons/fa';
-import NavLinks from '../../components/dropdowns'; // Importando o NavLinks correto
+
+import Dropdown from '../../common/Dropdown';
+import Loading from '../../common/Loading';
 import { SidebarContainer, MenuLogo, MenuItem, ToggleButton } from './SidebarStyle';
-import { useAuth } from '../../context/AuthContext';
+import { useAuth } from '../../../context/AuthContext';
+
 import { useNavigate } from 'react-router';
-import Loading from '../../components/alerts/loading';
 
 const Sidebar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(true);
@@ -30,13 +32,9 @@ const Sidebar: React.FC = () => {
   const toggleDropdown = (dropdown: string) => setOpenDropdown(openDropdown === dropdown ? null : dropdown);
 
   // Definindo os links para o dropdown "Usuário"
-  const userLinks = [
-    { to: '/update-photo', label: 'Alterar foto' },
-    { to: '/update-user-password', label: 'Alterar senha' }
-  ];
-
+  const userLinks = [{ to: '/user-profile', label: 'Perfil de usuário' }];
   // Definindo os links para o dropdown "Cadastro"
-  const registerLinks = [{ to: '/register-product', label: 'Cadastrar Produto' }];
+  const registerLinks = [{ to: '/users-view', label: 'Usuários' }];
 
   const handleLogout = () => {
     setLoading(true);
@@ -77,7 +75,7 @@ const Sidebar: React.FC = () => {
             <FaChevronDown className="iconChevron" />
           ))}
       </MenuItem>
-      {openDropdown === 'user' && isOpen && <NavLinks links={userLinks} />}
+      {openDropdown === 'user' && isOpen && <Dropdown links={userLinks} />}
 
       {/* Dropdown de Cadastro */}
       <MenuItem to="#" $isOpen={isOpen} onClick={() => toggleDropdown('register')}>
@@ -90,7 +88,7 @@ const Sidebar: React.FC = () => {
             <FaChevronDown className="iconChevron" />
           ))}
       </MenuItem>
-      {openDropdown === 'register' && isOpen && <NavLinks links={registerLinks} />}
+      {openDropdown === 'register' && isOpen && <Dropdown links={registerLinks} />}
 
       <MenuItem to="/settings" $isOpen={isOpen} data-is-active={location.pathname === '/settings'}>
         <FaCog className="menu-icon" />
