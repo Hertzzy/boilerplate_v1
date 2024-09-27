@@ -1,8 +1,10 @@
-// components/layout/RowComponent.tsx
-import React from 'react';
 import styled from 'styled-components';
 
-const StyledRowComponent = styled.div`
+export interface RowComponentProps {
+  children: React.ReactNode;
+}
+
+export const StyledRowComponent = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr); // Divide em 3 colunas iguais
   gap: 10px; // Espaçamento entre os inputs
@@ -17,13 +19,3 @@ const StyledRowComponent = styled.div`
     grid-template-columns: 1fr; // 1 coluna em telas pequenas (celulares)
   }
 `;
-
-interface RowComponentProps {
-  children: React.ReactNode;
-}
-
-const RowComponent: React.FC<RowComponentProps> = ({ children }) => {
-  return <StyledRowComponent>{children}</StyledRowComponent>;
-};
-
-export default RowComponent;

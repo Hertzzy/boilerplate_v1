@@ -1,8 +1,8 @@
 // src/pages/Login/index.tsx
 import React, { useState } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
-import Input from '../../components/Form/Input';
-import Button from '../../components/common/Buttons/ButtonText';
+import Input from '../../components/Form/Input/Input';
+import Button from '../../components/common/Buttons/Button';
 import MessageAlert from '../../components/common/MessageAlert';
 import { useAuth } from '../../context/AuthContext';
 import { LoginContainer, LoginForm, FormGroup } from './LoginStyles';

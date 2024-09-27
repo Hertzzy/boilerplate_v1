@@ -1,8 +1,8 @@
 import api from '../api';
 
 // Criar usuário
-export const registerUser = async (userData: any) => {
-  await api
+export const registerUser = (userData: any) => {
+  return api
     .post('/users', userData)
     .then(response => {
       return response;
@@ -12,8 +12,8 @@ export const registerUser = async (userData: any) => {
     });
 };
 // Listar todos os usuários
-export const ShowAllUsers = async () => {
-  await api
+export const ShowAllUsers = () => {
+  return api
     .get('/users')
     .then(response => {
       return response;
@@ -22,9 +22,10 @@ export const ShowAllUsers = async () => {
       throw new Error(error);
     });
 };
+
 // Visualizar usuário pelo ID
-export const ShowUserById = async (id: string) => {
-  await api
+export const ShowUserById = (id: string) => {
+  return api
     .get(`/users/id/${id}`)
     .then(response => {
       return response;
@@ -34,8 +35,8 @@ export const ShowUserById = async (id: string) => {
     });
 };
 // Editar usuário
-export const EditUser = async (id: string, userData: any) => {
-  await api
+export const EditUser = (id: string, userData: any) => {
+  return api
     .put(`/users/id/${id}`, userData)
     .then(response => {
       return response;
@@ -45,8 +46,8 @@ export const EditUser = async (id: string, userData: any) => {
     });
 };
 // Deletar usuário
-export const DeleteUser = async (id: string) => {
-  await api
+export const DeleteUser = (id: string) => {
+  return api
     .post(`/users/id/${id}`)
     .then(response => {
       return response;

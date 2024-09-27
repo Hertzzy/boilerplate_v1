@@ -1,9 +1,5 @@
-import styled from 'styled-components';
 import HeaderView from '../../components/Headers';
-
-const Container = styled.div`
-  height: 100%;
-`;
+import { Container } from './SettingsStyle';
 
 const SettingsView = () => {
   return (

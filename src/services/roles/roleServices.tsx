@@ -1,8 +1,8 @@
 import api from '../api';
 
 // Criar Role
-export const registerRole = async (RoleData: any) => {
-  await api
+export const registerRole = (RoleData: any) => {
+  return api
     .post('/roles', RoleData)
     .then(response => {
       return response;
@@ -12,7 +12,7 @@ export const registerRole = async (RoleData: any) => {
     });
 };
 // Listar todos os Roles
-export const ShowAllRoles = async () => {
+export const ShowAllRoles = () => {
   return api
     .get('/roles')
     .then(response => {
@@ -24,8 +24,8 @@ export const ShowAllRoles = async () => {
 };
 
 // Visualizar Role pelo ID
-export const ShowRoleById = async (id: string) => {
-  await api
+export const ShowRoleById = (id: string) => {
+  return api
     .get(`/roles/id/${id}`)
     .then(response => {
       return response;
@@ -35,8 +35,8 @@ export const ShowRoleById = async (id: string) => {
     });
 };
 // Editar Role
-export const EditRole = async (id: string, RoleData: any) => {
-  await api
+export const EditRole = (id: string, RoleData: any) => {
+  return api
     .put(`/roles/id/${id}`, RoleData)
     .then(response => {
       return response;
@@ -46,8 +46,8 @@ export const EditRole = async (id: string, RoleData: any) => {
     });
 };
 // Deletar Role
-export const DeleteRole = async (id: string) => {
-  await api
+export const DeleteRole = (id: string) => {
+  return api
     .post(`/roles/id/${id}`)
     .then(response => {
       return response;

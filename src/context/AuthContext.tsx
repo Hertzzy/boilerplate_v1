@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../services/api';
+import Loading from '../components/common/Loading';
 
 interface AuthContextType {
   authenticated: boolean;
@@ -51,6 +52,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     const response = await api.post('/auth/login', { email, password_hash });
 
     const loggedUser: User = response.data.user; // Tipando o loggedUser como User
+
     const AUTH_TOKEN = response.data.accessToken;
 
     localStorage.setItem('user', JSON.stringify(loggedUser));
@@ -72,7 +74,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 
   return (
     <AuthContext.Provider value={{ authenticated: !!user, user, loading, login, logout }}>
-      {loading ? <div>Loading...</div> : children}
+      {loading ? <Loading /> : children}
     </AuthContext.Provider>
   );
 };

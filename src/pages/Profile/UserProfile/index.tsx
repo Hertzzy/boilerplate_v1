@@ -1,12 +1,13 @@
 import { FaUser } from 'react-icons/fa';
 import Header from '../../../components/Headers';
 import Container from '../../../components/container';
-import FormGroup from '../../../components/Form/FormGroup';
-import Input from '../../../components/Form/Input';
-import Select from '../../../components/Form/Select'; // O select que você criou
+import FormGroup from '../../../components/Form/FormGroup/FormGroup';
+import Input from '../../../components/Form/Input/Input';
+import Select from '../../../components/Form/Select/Select'; // O select que você criou
 import { useAuth } from '../../../context/AuthContext';
 import { useState, useEffect } from 'react';
 import { ShowAllRoles } from '../../../services/roles/roleServices'; // Importa o serviço de roles
+import ButtonSubmit from '../../../components/common/Buttons/ButtonSubmit';
 
 const UserProfile = () => {
   const { user } = useAuth(); // Aqui, o user deve ser tipado como User
@@ -90,6 +91,8 @@ const UserProfile = () => {
             disabled={!isAdmin}
           />
         </FormGroup>
+
+        <ButtonSubmit to="#">Salvar</ButtonSubmit>
       </form>
     </Container>
   );
