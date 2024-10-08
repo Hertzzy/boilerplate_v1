@@ -1,9 +1,7 @@
-// src/components/buttons/Button.stories.tsx
-
 import React, { ReactNode } from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import Button from '../Button';
-import { ButtonProps } from './ButtonStyle';
+import ButtonBack from '../../../../../components/common/Buttons/ButtonBack';
+import { ButtonBackProps } from '../../../../../components/common/Buttons/ButtonBack/ButtonBackStyle';
 import { StoryFn } from '@storybook/react';
 
 interface RouterWrapperProps {
@@ -15,8 +13,8 @@ const RouterWrapper: React.FC<RouterWrapperProps> = ({ children }) => {
 };
 
 export default {
-  title: 'src/components/common/Buttons/Button',
-  component: Button,
+  title: 'src/components/common/Buttons/ButtonBack',
+  component: ButtonBack,
   decorators: [
     (Story: React.FC) => (
       <RouterWrapper>
@@ -26,18 +24,9 @@ export default {
   ]
 };
 
-const Template: StoryFn<ButtonProps> = args => <Button {...args} />;
+const Template: StoryFn<ButtonBackProps> = args => <ButtonBack {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  children: 'Entrar',
-  disabled: false,
-  type: 'button'
-};
-
-export const Disabled = Template.bind({});
-Disabled.args = {
-  children: 'Disabled Button',
-  disabled: true,
-  type: 'button'
+  to: '/'
 };

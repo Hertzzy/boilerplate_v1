@@ -2,8 +2,8 @@
 
 import React, { ReactNode } from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import ButtonRoute from '../ButtonRoute';
-import { ButtonRouteProps } from './ButtonRouteStyle';
+import ButtonRoute from '../../../../../components/common/Buttons/ButtonRoute';
+import { ButtonRouteProps } from '../../../../../components/common/Buttons/ButtonRoute/ButtonRouteStyle';
 import { StoryFn } from '@storybook/react';
 import { FaPlus } from 'react-icons/fa';
 

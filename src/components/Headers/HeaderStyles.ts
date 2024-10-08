@@ -1,7 +1,12 @@
 // src/components/Header/HeaderStyles.ts
 import styled from 'styled-components';
 
-const HeaderContainer = styled.header`
+export interface HeaderViewProps {
+  pageTitle: string;
+  icon?: React.ReactNode;
+}
+
+export const HeaderContainer = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -10,16 +15,14 @@ const HeaderContainer = styled.header`
   border-bottom: 1px solid #536d82;
 `;
 
-const PageTitle = styled.h1`
+export const PageTitle = styled.h1`
   color: #536d82;
   display: flex;
   align-items: center;
 `;
 
-const Icon = styled.span`
+export const Icon = styled.span`
   margin-top: 8px;
   margin-right: 15px;
   font-size: 32px;
 `;
-
-export { HeaderContainer, PageTitle, Icon };
