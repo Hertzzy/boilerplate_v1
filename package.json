@@ -12,6 +12,7 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@chakra-ui/react": "^2.10.1",
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
     "@mui/material": "^5.16.7",
@@ -20,6 +21,7 @@
     "@mui/x-data-grid-generator": "^7.14.0",
     "@mui/x-data-grid-premium": "^7.14.0",
     "axios": "^1.7.4",
+    "framer-motion": "^11.11.3",
     "i18next": "^23.14.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

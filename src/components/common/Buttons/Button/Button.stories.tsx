@@ -2,8 +2,8 @@
 
 import React, { ReactNode } from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import Button from '../../../../../components/common/Buttons/Button';
-import { ButtonProps } from '../../../../../components/common/Buttons/Button/ButtonStyle';
+import Button from '.';
+import { ButtonProps } from './ButtonStyle';
 import { StoryFn } from '@storybook/react';
 
 interface RouterWrapperProps {

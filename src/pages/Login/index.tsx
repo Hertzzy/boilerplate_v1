@@ -48,7 +48,7 @@ const LoginView: React.FC = () => {
     <LoginContainer>
       {message && <MessageAlert message={message} type={messageType} onClose={handleCloseMessage} />}
       <LoginForm>
-        <h2>Login</h2>
+        <h2>LOGIN</h2>
         <form onSubmit={handleSubmit}>
           <FormGroup>
             <Input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} />

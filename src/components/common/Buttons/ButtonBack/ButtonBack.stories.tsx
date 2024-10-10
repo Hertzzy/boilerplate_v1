@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import ButtonBack from '../../../../../components/common/Buttons/ButtonBack';
-import { ButtonBackProps } from '../../../../../components/common/Buttons/ButtonBack/ButtonBackStyle';
+import ButtonBack from '.';
+import { ButtonBackProps } from './ButtonBackStyle';
 import { StoryFn } from '@storybook/react';
 
 interface RouterWrapperProps {

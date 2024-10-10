@@ -1,7 +1,7 @@
 // src/components/Header/Header.stories.tsx
 import { StoryFn } from '@storybook/react';
-import Header from '../../../components/Headers';
-import { HeaderViewProps } from '../../../components/Headers/HeaderStyles';
+import Header from '.';
+import { HeaderViewProps } from './HeaderStyles';
 
 // Definição do componente no Storybook
 export default {

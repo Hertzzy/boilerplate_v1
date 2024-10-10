@@ -1,6 +1,6 @@
 import { Meta, StoryFn } from '@storybook/react';
-import ButtonSubmit from '../../../../../components/common/Buttons/ButtonSubmit';
-import { ButtonSubmitProps } from '../../../../../components/common/Buttons/ButtonSubmit/ButtonSubmitStyle';
+import ButtonSubmit from '.';
+import { ButtonSubmitProps } from './ButtonSubmitStyle';
 
 export default {
   title: 'src/components/common/Buttons/ButtonSubmit',

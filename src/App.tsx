@@ -1,5 +1,5 @@
 import AppRouter from './routes/AppRouter';
-import './styles/global.css';
+import './assets/css/global.css';
 import { AuthProvider } from './context/AuthContext';
 
 function App() {
