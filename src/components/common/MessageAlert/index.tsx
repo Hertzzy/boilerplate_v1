@@ -9,10 +9,10 @@ const MessageAlert: React.FC<MessageAlertProps> = ({ message, type, onClose }) =
     // Temporizador para fechar o alerta após 3 segundos
     const timeoutId = setTimeout(() => {
       setIsExiting(true);
-      setTimeout(onClose, 500); // Aguarda a animação de saída antes de fechar
+      setTimeout(onClose, 500);
     }, 3000);
 
-    return () => clearTimeout(timeoutId); // Limpa o temporizador se o componente for desmontado
+    return () => clearTimeout(timeoutId);
   }, [onClose]);
 
   return (
