@@ -33,7 +33,6 @@ const Sidebar: React.FC = () => {
 
   // Definindo os links para o dropdown "Usuário"
   const userLinks = [{ to: '/user-profile', label: 'Perfil de usuário' }];
-  // Definindo os links para o dropdown "Cadastro"
   const registerLinks = [{ to: '/users-view', label: 'Usuários' }];
 
   const handleLogout = () => {
@@ -64,7 +63,6 @@ const Sidebar: React.FC = () => {
         <span>Home</span>
       </MenuItem>
 
-      {/* Dropdown de Usuário */}
       <MenuItem to="#" $isOpen={isOpen} onClick={() => toggleDropdown('user')}>
         <FaUser className="menu-icon" />
         <span>Usuário</span>
@@ -77,7 +75,6 @@ const Sidebar: React.FC = () => {
       </MenuItem>
       {openDropdown === 'user' && isOpen && <Dropdown links={userLinks} />}
 
-      {/* Dropdown de Cadastro */}
       <MenuItem to="#" $isOpen={isOpen} onClick={() => toggleDropdown('register')}>
         <FaBox className="menu-icon" />
         <span>Cadastro</span>

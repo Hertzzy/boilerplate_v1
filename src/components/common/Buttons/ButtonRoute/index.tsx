@@ -1,5 +1,3 @@
-// src/components/ButtonRoute.tsx
-
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { StyledButton, ButtonRouteProps } from './ButtonRouteStyle';

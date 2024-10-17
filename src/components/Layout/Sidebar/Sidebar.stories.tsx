@@ -2,7 +2,7 @@ import React from 'react';
 import { StoryFn } from '@storybook/react';
 import Sidebar from '.';
 import { BrowserRouter } from 'react-router-dom';
-import { AuthProvider } from '../../../context/AuthContext'; // Importe seu contexto de autenticação
+import { AuthProvider } from '../../../context/AuthContext';
 
 export default {
   title: 'src/components/Sidebar',
@@ -14,7 +14,7 @@ const RouterWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) =>
 };
 
 const AuthWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  return <AuthProvider>{children}</AuthProvider>; // Adicione o AuthProvider para simular o contexto de autenticação
+  return <AuthProvider>{children}</AuthProvider>;
 };
 
 const Template: StoryFn = () => (

@@ -6,7 +6,6 @@ export interface MessageAlertProps {
   onClose: () => void;
 }
 
-// Animação para a entrada suave do alerta
 export const slideIn = keyframes`
   from {
     transform: translateX(100%);
@@ -18,7 +17,6 @@ export const slideIn = keyframes`
   }
 `;
 
-// Animação para a saída suave do alerta
 export const slideOut = keyframes`
   from {
     transform: translateX(0);

@@ -1,5 +1,3 @@
-// src/components/ButtonRoute.stories.tsx
-
 import React, { ReactNode } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import ButtonRoute from '.';
@@ -36,10 +34,9 @@ Default.args = {
   icon: <FaPlus />
 };
 
-// Exemplo com ícone
 export const WithIcon = Template.bind({});
 WithIcon.args = {
-  to: '/about', // Caminho para onde o botão deve navegar
-  children: 'About Us', // Texto exibido no botão
-  icon: <span>🚀</span> // Exemplo de ícone
+  to: '/about',
+  children: 'About Us',
+  icon: <span>🚀</span>
 };

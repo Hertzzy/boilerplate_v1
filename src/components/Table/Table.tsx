@@ -1,11 +1,10 @@
 import React from 'react';
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
-// import { GridRowsProp } from '@mui/x-data-grid';
 
 interface TableProps {
   rows: any[];
   columns: GridColDef[];
-  localeText?: any; // Adicione esta linha para aceitar localeText
+  localeText?: any;
 }
 
 const Table: React.FC<TableProps> = ({ rows, columns, localeText }) => {

@@ -1,4 +1,3 @@
-// src/components/Form/FormGroup.tsx
 import React from 'react';
 import { Group, Label, FormGroupProps } from './FormGroupStyle';
 

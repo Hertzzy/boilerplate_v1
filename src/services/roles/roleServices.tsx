@@ -22,7 +22,6 @@ export const ShowAllRoles = () => {
       throw new Error(error as any);
     });
 };
-
 // Visualizar Role pelo ID
 export const ShowRoleById = (id: string) => {
   return api

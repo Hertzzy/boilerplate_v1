@@ -1,5 +1,3 @@
-// src/components/buttons/Button.stories.tsx
-
 import React, { ReactNode } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import Button from '.';

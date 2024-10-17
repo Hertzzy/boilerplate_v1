@@ -1,4 +1,3 @@
-// src/components/buttons/Button.tsx
 import React from 'react';
 import { StyledButton, ButtonProps } from './ButtonStyle';
 

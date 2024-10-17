@@ -3,16 +3,15 @@ import Header from '../../../components/Headers';
 import Container from '../../../components/container';
 import FormGroup from '../../../components/Form/FormGroup/FormGroup';
 import Input from '../../../components/Form/Input/Input';
-import Select from '../../../components/Form/Select/Select'; // O select que você criou
+import Select from '../../../components/Form/Select/Select';
 import { useAuth } from '../../../context/AuthContext';
 import { useState, useEffect } from 'react';
-import { ShowAllRoles } from '../../../services/roles/roleServices'; // Importa o serviço de roles
+import { ShowAllRoles } from '../../../services/roles/roleServices';
 import ButtonSubmit from '../../../components/common/Buttons/ButtonSubmit';
 
 const UserProfile = () => {
-  const { user } = useAuth(); // Aqui, o user deve ser tipado como User
+  const { user } = useAuth();
 
-  // Estados para armazenar os dados do usuário
   const [name, setName] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const [roles, setRoles] = useState<{ value: string; label: string }[]>([]);
@@ -20,30 +19,25 @@ const UserProfile = () => {
   const [isAdmin, setIsAdmin] = useState<boolean>(false);
   const [status, setStatus] = useState<number>(1);
 
-  // Mapeamento de status (1 para Ativo, 2 para Inativo)
   const statusOptions = [
     { value: '1', label: 'Ativo' },
     { value: '2', label: 'Inativo' }
   ];
 
-  // Preencher os campos quando o componente é montado
   useEffect(() => {
     if (user) {
       setName(user.name);
       setEmail(user.email);
-      // Verifica se o usuário tem a role 'admin'
       const userIsAdmin = user.roles.some((role: { role_name: string }) => role.role_name === 'admin');
       setIsAdmin(userIsAdmin);
-      // Seta a role selecionada com a primeira role do usuário
+
       if (user.roles.length > 0) {
         setSelectedRole(user.roles[0].role_name);
       }
-      // Seta o status do usuário (1 para ativo, 2 para inativo)
       setStatus(user.status);
     }
   }, [user]);
 
-  // Carregar as roles do sistema
   useEffect(() => {
     const getRoles = () => {
       ShowAllRoles()

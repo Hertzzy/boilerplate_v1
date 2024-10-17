@@ -22,7 +22,6 @@ export const ShowAllUsers = () => {
       throw new Error(error);
     });
 };
-
 // Visualizar usuário pelo ID
 export const ShowUserById = (id: string) => {
   return api

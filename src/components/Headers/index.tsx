@@ -1,4 +1,3 @@
-// src/components/Header/Header.tsx
 import React from 'react';
 import { HeaderViewProps, HeaderContainer, PageTitle, Icon } from './HeaderStyles';
 

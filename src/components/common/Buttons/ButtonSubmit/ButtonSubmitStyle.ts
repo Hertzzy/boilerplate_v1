@@ -5,7 +5,7 @@ export interface ButtonSubmitProps {
   children: React.ReactNode;
   icon?: React.ReactNode;
 }
-// Definindo o estilo do botão com styled-components
+
 export const StyledButton = styled.button`
   display: flex;
   align-items: center;

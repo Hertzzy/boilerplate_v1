@@ -14,8 +14,8 @@ export const Overlay = styled.div`
 `;
 
 export const Spinner = styled.div`
-  border: 8px solid #f3f3f3; /* Light grey */
-  border-top: 8px solid #536d82; /* Blue */
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #536d82;
   border-radius: 50%;
   width: 50px;
   height: 50px;

@@ -21,7 +21,7 @@ interface User {
   email: string;
   name: string;
   status: number;
-  roles: Role[]; // Adicione a propriedade roles aqui
+  roles: Role[];
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);

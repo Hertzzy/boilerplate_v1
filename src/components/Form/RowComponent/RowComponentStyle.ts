@@ -6,16 +6,16 @@ export interface RowComponentProps {
 
 export const StyledRowComponent = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr); // Divide em 3 colunas iguais
-  gap: 10px; // Espaçamento entre os inputs
-  width: 100%; // Garante que o RowComponent ocupe toda a largura disponível
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  width: 100%;
   margin-top: 25px;
 
   @media (max-width: 1024px) {
-    grid-template-columns: repeat(2, 1fr); // 2 colunas em telas menores
+    grid-template-columns: repeat(2, 1fr);
   }
 
   @media (max-width: 768px) {
-    grid-template-columns: 1fr; // 1 coluna em telas pequenas (celulares)
+    grid-template-columns: 1fr;
   }
 `;

@@ -1,4 +1,3 @@
-// src/pages/Login/index.tsx
 import React, { useState } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 import Input from '../../components/Form/Input/Input';
@@ -15,7 +14,6 @@ const LoginView: React.FC = () => {
   const { login, authenticated } = useAuth();
   const navigate = useNavigate();
 
-  // Redireciona se o usuário já estiver autenticado
   if (authenticated) {
     return <Navigate to="/" />;
   }
@@ -27,11 +25,11 @@ const LoginView: React.FC = () => {
       .then(() => {
         setMessageType('success');
         setMessage('Login bem-sucedido!');
-        navigate('/'); // Redireciona para a página home
+        navigate('/');
 
         setTimeout(() => {
           setMessage(null);
-          navigate('/'); // Redireciona para a página home
+          navigate('/');
         }, 3000);
       })
       .catch((error: any) => {

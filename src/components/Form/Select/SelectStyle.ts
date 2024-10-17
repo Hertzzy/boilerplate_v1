@@ -10,7 +10,7 @@ export interface SelectProps {
   value?: string;
   onChange?: React.ChangeEventHandler<HTMLSelectElement>;
   borderColor?: string;
-  disabled?: boolean; // Adiciona a propriedade disabled
+  disabled?: boolean;
 }
 
 export const StyledSelect = styled.select<{ borderColor?: string }>`

@@ -6,7 +6,6 @@ const MessageAlert: React.FC<MessageAlertProps> = ({ message, type, onClose }) =
   const [isExiting, setIsExiting] = useState(false);
 
   useEffect(() => {
-    // Temporizador para fechar o alerta após 3 segundos
     const timeoutId = setTimeout(() => {
       setIsExiting(true);
       setTimeout(onClose, 500);
