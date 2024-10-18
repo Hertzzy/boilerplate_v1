@@ -8,7 +8,7 @@
 }
 
 body {
-  background-color: #dde6ed;
+  transition: background-color 0.3s ease;
 }
 
 h1,
@@ -46,4 +46,19 @@ h6 {
 
 form {
   margin: 0px;
+}
+
+.dark-mode {
+  background-color: #333333;
+  color: #f5f5f5;
+}
+
+.light-mode {
+  background-color: #dde6ed;
+  color: #333333;
+}
+
+/* Certifique-se de que seus estilos específicos do dashboard estão de acordo */
+.dashboard {
+  transition: background-color 0.3s ease;
 }

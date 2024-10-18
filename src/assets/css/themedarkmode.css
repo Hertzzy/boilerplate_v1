@@ -14,8 +14,7 @@ h6 {
 
 .dashboard {
   display: flex;
-  flex-direction: row;
-  height: 987h;
+  margin: 0px;
 }
 
 .dashboard--content {
