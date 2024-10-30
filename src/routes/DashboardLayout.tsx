@@ -1,34 +1,22 @@
-// src/layout/DashboardLayout.tsx
 import React, { useState, useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Home from '../pages/Home';
-import Sidebar from '../components/layout/Sidebar';
+import Sidebar from '../components/Sidebar/Sidebar';
 import Settings from '../pages/Settings';
 import Loading from '../components/common/Loading';
 import ProtectedRoute from './ProtectRoute';
 import UserProfile from '../pages/Profile/UserProfile';
 import UsersView from '../pages/User/UsersView';
 import UserCreate from '../pages/User/UsersCreate';
-import Header from '../components/Headers';
-import { FaHome } from 'react-icons/fa';
+import DarkModeButton from '../components/common/DarkModeButton'; // Importando o botão
+import { useTheme } from '../context/ThemeContext'; // Importando o contexto de tema
 
 const DashboardLayout: React.FC = () => {
   const location = useLocation();
   const [loading, setLoading] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const { isDarkMode } = useTheme();
 
-  useEffect(() => {
-    const storedTheme = localStorage.getItem('theme');
-    if (storedTheme) {
-      setIsDarkMode(storedTheme === 'dark');
-    }
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
-    document.body.className = isDarkMode ? 'dark-mode' : 'light-mode';
-  }, [isDarkMode]);
-
+  // Controlar a animação de carregamento
   useEffect(() => {
     setLoading(true);
     const timer = setTimeout(() => {
@@ -44,31 +32,15 @@ const DashboardLayout: React.FC = () => {
     <div className={`dashboard ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
       {showSidebar && <Sidebar />}
       <div className="dashboard--content">
-        <Header
-          pageTitle="Dashboard"
-          icon={<FaHome />}
-          isDarkMode={isDarkMode}
-          toggleDarkMode={() => setIsDarkMode(prev => !prev)}
-        />
+        {/* Botão de Dark Mode adicionado aqui */}
+        <DarkModeButton />
         {loading && <Loading />}
         <Routes>
           <Route path="/" element={<ProtectedRoute element={<Home />} />} />
-          <Route
-            path="/user-profile"
-            element={<ProtectedRoute element={<UserProfile />} />}
-          />
-          <Route
-            path="/users-view"
-            element={<ProtectedRoute element={<UsersView />} />}
-          />
-          <Route
-            path="/user-create"
-            element={<ProtectedRoute element={<UserCreate />} />}
-          />
-          <Route
-            path="/settings"
-            element={<ProtectedRoute element={<Settings />} />}
-          />
+          <Route path="/user-profile" element={<ProtectedRoute element={<UserProfile />} />} />
+          <Route path="/users-view" element={<ProtectedRoute element={<UsersView />} />} />
+          <Route path="/user-create" element={<ProtectedRoute element={<UserCreate />} />} />
+          <Route path="/settings" element={<ProtectedRoute element={<Settings />} />} />
         </Routes>
       </div>
     </div>

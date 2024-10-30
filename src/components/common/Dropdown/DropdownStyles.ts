@@ -1,26 +1,28 @@
-// src/components/NavLinks/NavLinksStyles.ts
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
-interface DropdownProps {}
-
-const DropdownContainer = styled.div<DropdownProps>`
+const DropdownContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  background-color: #fff;
   transition: opacity 0.3s;
+
+  &.dark-mode {
+    background-color: #333; /* Cor de fundo escura */
+  }
+
+  &.light-mode {
+    background-color: #fff; /* Cor de fundo clara */
+  }
 `;
 
-const DropdownItem = styled(NavLink)<DropdownProps>`
+const DropdownItem = styled(NavLink)`
   padding: 10px 20px;
-  color: #536d82;
-  background-color: #fff;
   cursor: pointer;
-  text-decoration: none;
   display: flex;
   align-items: center;
   transition: background-color 0.3s, color 0.3s;
+  text-decoration: none;
 
   &.active {
     color: #fff;
@@ -32,9 +34,12 @@ const DropdownItem = styled(NavLink)<DropdownProps>`
     color: #fff;
   }
 
-  .dropdown-icons {
-    font-size: 1.2rem;
-    margin-right: 15px;
+  &.dark-mode {
+    color: #fff; /* Cor do texto no modo escuro */
+  }
+
+  &.light-mode {
+    color: #536d82; /* Cor do texto no modo claro */
   }
 `;
 

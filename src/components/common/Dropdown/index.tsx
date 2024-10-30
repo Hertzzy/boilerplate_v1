@@ -1,5 +1,6 @@
+// src/components/MenuDropdown.tsx
 import React from 'react';
-
+import { useTheme } from '../../../context/ThemeContext'; // Verifique o caminho
 import { DropdownContainer, DropdownItem } from './DropdownStyles';
 
 interface NavLinkProps {
@@ -7,10 +8,12 @@ interface NavLinkProps {
 }
 
 const MenuDropdown: React.FC<NavLinkProps> = ({ links }) => {
+  const { isDarkMode } = useTheme();
+
   return (
-    <DropdownContainer>
+    <DropdownContainer className={isDarkMode ? 'dark-mode' : 'light-mode'}>
       {links?.map((link, index) => (
-        <DropdownItem key={index} to={link.to}>
+        <DropdownItem key={index} to={link.to} className={isDarkMode ? 'dark-mode' : 'light-mode'}>
           {link.label}
         </DropdownItem>
       ))}

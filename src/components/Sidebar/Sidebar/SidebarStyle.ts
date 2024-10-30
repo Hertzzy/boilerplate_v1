@@ -3,22 +3,20 @@ import { Link } from 'react-router-dom';
 
 interface SidebarProps {
   $isOpen: boolean;
+  isDarkMode: boolean; // Adicionar isDarkMode
 }
 
 export const SidebarContainer = styled.div<SidebarProps>`
   width: ${({ $isOpen }) => ($isOpen ? '250px' : '80px')};
-  background-color: #fff;
-  color: #536d82;
+  background-color: ${({ isDarkMode }) => (isDarkMode ? '#333333' : '#fff')}; // Mudar a cor de fundo com base no tema
+  color: ${({ isDarkMode }) => (isDarkMode ? '#f5f5f5' : '#536d82')}; // Mudar a cor do texto
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: width 0.3s;
+  transition: width 0.3s, background-color 0.3s, color 0.3s; // Adicionar transição de cor
   position: relative;
   height: 100vh;
-
-  -webkit-box-shadow: 0px 3px 12px 0px rgba(83, 109, 130, 0.3);
-  -moz-box-shadow: 0px 3px 12px 0px rgba(83, 109, 130, 0.3);
-  box-shadow: 0px 3px 12px 0px rgba(83, 109, 130, 0.3);
+  box-shadow: 0px 3px 12px rgba(83, 109, 130, 0.3);
 `;
 
 export const MenuLogo = styled.div<{ $isOpen: boolean }>`
@@ -26,15 +24,15 @@ export const MenuLogo = styled.div<{ $isOpen: boolean }>`
   padding: 20px 5px;
 `;
 
-export const MenuItem = styled(Link)<{ $isOpen: boolean; 'data-is-active'?: boolean }>`
+export const MenuItem = styled(Link)<SidebarProps>`
   width: 100%;
   padding: 10px 15px;
   display: flex;
   justify-content: ${({ $isOpen }) => ($isOpen ? 'flex-start' : 'center')};
   cursor: pointer;
   text-decoration: none;
-  color: ${({ 'data-is-active': isActive }) => (isActive ? '#fff' : '#536d82')};
-  background-color: ${({ 'data-is-active': isActive }) => (isActive ? '#536d82' : '#fff')};
+  color: ${({ isDarkMode }) => (isDarkMode ? '#f5f5f5' : '#536d82')}; // Mudar a cor do texto
+  background-color: ${({ isDarkMode }) => (isDarkMode ? '#333333' : '#fff')}; // Mudar a cor de fundo com base no tema
   transition: background-color 0.3s, color 0.3s;
 
   &:hover {

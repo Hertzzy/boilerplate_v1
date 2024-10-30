@@ -1,28 +1,15 @@
-// src/components/DarkModeButton.tsx
+// src/components/common/DarkModeButton/index.tsx
 import React from 'react';
-import { IoSunnySharp } from 'react-icons/io5';
-import { BsMoonStarsFill } from 'react-icons/bs';
-import styled from 'styled-components';
+import { Button } from './DarkModeStyles'; // Certifique-se de que este caminho está correto
+import { useTheme } from '../../../context/ThemeContext';
+import { BsMoonStars, BsSun } from 'react-icons/bs';
 
-const Button = styled.div`
-  font-size: 28px;
-  margin-top: 8px;
-  margin-right: 20px;
-  cursor: pointer;
-`;
+const DarkModeButton: React.FC = () => {
+  const { isDarkMode, toggleDarkMode } = useTheme();
 
-interface DarkModeButtonProps {
-  isDarkMode: boolean;
-  toggleDarkMode: () => void;
-}
-
-const DarkModeButton: React.FC<DarkModeButtonProps> = ({
-  isDarkMode,
-  toggleDarkMode
-}) => {
   return (
-    <Button onClick={toggleDarkMode}>
-      {isDarkMode ? <BsMoonStarsFill /> : <IoSunnySharp />}
+    <Button isDarkMode={isDarkMode} onClick={toggleDarkMode}>
+      {isDarkMode ? <BsMoonStars /> : <BsSun />}
     </Button>
   );
 };

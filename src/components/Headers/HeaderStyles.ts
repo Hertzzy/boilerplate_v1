@@ -4,8 +4,6 @@ import styled from 'styled-components';
 export interface HeaderViewProps {
   pageTitle: string;
   icon?: React.ReactNode;
-  isDarkMode: boolean; // Adicionando isDarkMode
-  toggleDarkMode: () => void; // Adicionando toggleDarkMode
 }
 
 export const HeaderContainer = styled.header`

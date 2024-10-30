@@ -1,12 +1,15 @@
 import Container from '../../components/container';
+import Header from '../../components/Headers';
 import { useAuth } from '../../context/AuthContext';
-import { useState } from 'react';
+import { FaHome } from 'react-icons/fa';
 
 const Home = () => {
   const { user } = useAuth();
 
   return (
     <Container>
+      <Header icon={<FaHome />} pageTitle="Home" />
+
       <h2>Bem-vindo, {user ? user.name : ' '}!</h2>
     </Container>
   );
