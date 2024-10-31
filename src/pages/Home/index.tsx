@@ -8,7 +8,7 @@ const Home = () => {
 
   return (
     <Container>
-      <Header icon={<FaHome />} pageTitle="Home" />
+      <Header icon={<FaHome />} pageTitle="Home" isDarkMode />
 
       <h2>Bem-vindo, {user ? user.name : ' '}!</h2>
     </Container>

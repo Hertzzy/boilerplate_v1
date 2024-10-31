@@ -4,7 +4,7 @@ import { FaRegSave } from 'react-icons/fa';
 
 const ButtonSubmit: React.FC<ButtonSubmitProps> = ({ children }) => {
   return (
-    <StyledButton>
+    <StyledButton className="btn-style">
       <FaRegSave />
       {children}
     </StyledButton>

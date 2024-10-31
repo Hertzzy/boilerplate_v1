@@ -11,7 +11,7 @@ const ButtonBack: React.FC<ButtonBackProps> = ({ to }) => {
   };
 
   return (
-    <StyledButton onClick={handleClick}>
+    <StyledButton className="btn-style" onClick={handleClick}>
       <TiArrowBack />
     </StyledButton>
   );

@@ -5,6 +5,7 @@ import Button from '../../components/common/Buttons/Button';
 import MessageAlert from '../../components/common/MessageAlert';
 import { useAuth } from '../../context/AuthContext';
 import { LoginContainer, LoginForm, FormGroup } from './LoginStyles';
+import DarkModeButton from '../../components/common/DarkModeButton';
 
 const LoginView: React.FC = () => {
   const [email, setEmail] = useState<string>('');
@@ -43,26 +44,31 @@ const LoginView: React.FC = () => {
   };
 
   return (
-    <LoginContainer>
-      {message && <MessageAlert message={message} type={messageType} onClose={handleCloseMessage} />}
-      <LoginForm>
-        <h2>LOGIN</h2>
-        <form onSubmit={handleSubmit}>
-          <FormGroup>
-            <Input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} />
-          </FormGroup>
-          <FormGroup>
-            <Input
-              type="password"
-              placeholder="Password"
-              value={password_hash}
-              onChange={e => setPassword_hash(e.target.value)}
-            />
-          </FormGroup>
-          <Button type="submit">Login</Button>
-        </form>
-      </LoginForm>
-    </LoginContainer>
+    <>
+      <div className="postion-btn-dark-login">
+        <DarkModeButton />
+      </div>
+      <LoginContainer>
+        {message && <MessageAlert message={message} type={messageType} onClose={handleCloseMessage} />}
+        <LoginForm>
+          <h2>LOGIN</h2>
+          <form onSubmit={handleSubmit}>
+            <FormGroup>
+              <Input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} />
+            </FormGroup>
+            <FormGroup>
+              <Input
+                type="password"
+                placeholder="Password"
+                value={password_hash}
+                onChange={e => setPassword_hash(e.target.value)}
+              />
+            </FormGroup>
+            <Button type="submit">Login</Button>
+          </form>
+        </LoginForm>
+      </LoginContainer>
+    </>
   );
 };
 

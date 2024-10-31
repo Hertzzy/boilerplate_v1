@@ -7,7 +7,7 @@ import { ButtonContainer } from './UserCreateStyle';
 const UserCreate = () => {
   return (
     <Container>
-      <Header pageTitle="Usuários" icon={<FaUsers />} />
+      <Header pageTitle="Usuários" icon={<FaUsers />} isDarkMode />
       <ButtonContainer>
         <ButtonBack to="/users-view">Voltar</ButtonBack>
       </ButtonContainer>

@@ -10,8 +10,7 @@ export const Button = styled.div<DarkModeButtonProps>`
   margin-top: 10px;
   margin-right: 20px;
   cursor: pointer;
-  position: absolute;
-  right: 2%;
-  color: ${({ isDarkMode }) => (isDarkMode ? '#536d82' : '#536d82')};
+
+  color: ${({ isDarkMode }) => (isDarkMode ? '#f5f5f5' : '#536d82')};
   transition: color 0.3s ease;
 `;

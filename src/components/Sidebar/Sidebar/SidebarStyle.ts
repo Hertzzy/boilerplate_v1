@@ -7,7 +7,7 @@ interface SidebarProps {
 }
 
 export const SidebarContainer = styled.div<SidebarProps>`
-  width: ${({ $isOpen }) => ($isOpen ? '250px' : '80px')};
+  width: ${({ $isOpen }) => ($isOpen ? '240px' : '80px')};
   background-color: ${({ isDarkMode }) => (isDarkMode ? '#333333' : '#fff')}; // Mudar a cor de fundo com base no tema
   color: ${({ isDarkMode }) => (isDarkMode ? '#f5f5f5' : '#536d82')}; // Mudar a cor do texto
   display: flex;
@@ -17,6 +17,10 @@ export const SidebarContainer = styled.div<SidebarProps>`
   position: relative;
   height: 100vh;
   box-shadow: 0px 3px 12px rgba(83, 109, 130, 0.3);
+
+  @media (max-width: 620px) {
+    width: 80px;
+  }
 `;
 
 export const MenuLogo = styled.div<{ $isOpen: boolean }>`
@@ -26,9 +30,10 @@ export const MenuLogo = styled.div<{ $isOpen: boolean }>`
 
 export const MenuItem = styled(Link)<SidebarProps>`
   width: 100%;
-  padding: 10px 15px;
+  padding: 5px 15px;
   display: flex;
   justify-content: ${({ $isOpen }) => ($isOpen ? 'flex-start' : 'center')};
+  align-items: center;
   cursor: pointer;
   text-decoration: none;
   color: ${({ isDarkMode }) => (isDarkMode ? '#f5f5f5' : '#536d82')}; // Mudar a cor do texto
@@ -36,8 +41,8 @@ export const MenuItem = styled(Link)<SidebarProps>`
   transition: background-color 0.3s, color 0.3s;
 
   &:hover {
-    background-color: #536d82;
-    color: #fff;
+    background-color: ${({ isDarkMode }) => (isDarkMode ? '#f5f5f5' : '#536d82')};
+    color: ${({ isDarkMode }) => (isDarkMode ? '#333' : '#f5f5f5')}; // Mudar a cor do texto
   }
 
   span {
@@ -50,27 +55,41 @@ export const MenuItem = styled(Link)<SidebarProps>`
 
   .menu-icon {
     font-size: 1.6rem;
+    padding-top: 7px;
   }
 
   .iconChevron {
     font-size: 1rem;
     margin-left: auto;
-    margin-top: 7px;
+    margin-top: 5px;
+  }
+
+  @media (max-width: 620px) {
+    justify-content: center;
+
+    span,
+    .iconChevron {
+      display: none;
+    }
   }
 `;
 
-export const ToggleButton = styled.button<{ $isOpen: boolean }>`
-  position: absolute;
+export const ToggleButton = styled.button<SidebarProps>`
+  position: fixed;
   bottom: 20px;
   left: ${({ $isOpen }) => ($isOpen ? '200px' : '28px')};
   background: none;
   border: none;
-  color: #536d82;
+  color: ${({ isDarkMode }) => (isDarkMode ? '#f5f5f5' : '#536d82')}; // Mudar a cor do texto
   font-size: 24px;
   cursor: pointer;
   transition: left 0.3s;
 
   .menu-icon {
     color: '#536d82';
+  }
+
+  @media (max-width: 620px) {
+    left: 28px;
   }
 `;

@@ -24,22 +24,23 @@ const DropdownItem = styled(NavLink)`
   transition: background-color 0.3s, color 0.3s;
   text-decoration: none;
 
-  &.active {
-    color: #fff;
-    background-color: #536d82;
-  }
-
-  &:hover {
-    background-color: #536d82;
-    color: #fff;
-  }
-
   &.dark-mode {
-    color: #fff; /* Cor do texto no modo escuro */
+    color: #fff;
+    background-color: #333;
+  }
+
+  &.dark-mode:hover {
+    color: #333;
+    background-color: #fff;
   }
 
   &.light-mode {
-    color: #536d82; /* Cor do texto no modo claro */
+    color: #536d82;
+  }
+
+  &.light-mode:hover {
+    background-color: #536d82;
+    color: #fff;
   }
 `;
 

@@ -10,7 +10,7 @@ const ButtonRoute: React.FC<ButtonRouteProps> = ({ to, children, icon }) => {
   };
 
   return (
-    <StyledButton onClick={handleClick}>
+    <StyledButton className="btn-style" onClick={handleClick}>
       {icon && icon}
       {children}
     </StyledButton>

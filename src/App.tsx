@@ -1,5 +1,6 @@
 import AppRouter from './routes/AppRouter';
 import './assets/css/global.css';
+import './assets/css/dark-mode.css';
 import { AuthProvider } from './context/AuthContext';
 import { ThemeProvider } from './context/ThemeContext';
 
