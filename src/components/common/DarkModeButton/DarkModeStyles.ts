@@ -5,7 +5,8 @@ export interface DarkModeButtonProps {
   isDarkMode: boolean; // Propriedade para o tema
 }
 
-export const Button = styled.div<DarkModeButtonProps>`
+export const Button = styled.button<DarkModeButtonProps>`
+  // Altere aqui para 'button'
   font-size: 22px;
   margin-top: 10px;
   margin-right: 20px;

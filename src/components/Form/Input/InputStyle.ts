@@ -8,7 +8,7 @@ export interface InputProps {
   borderColor?: string;
 }
 
-export const StyledInput = styled.input<{ borderColor?: string }>`
+export const InputComponent = styled.input<{ borderColor?: string }>`
   border: 1px solid ${({ borderColor }) => borderColor || '#ccc'};
   border-radius: 5px;
   padding: 6px;

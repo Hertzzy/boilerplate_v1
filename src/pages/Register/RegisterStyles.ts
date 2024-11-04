@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const LoginContainer = styled.div`
+export const RegisterContainer = styled.div`
   text-align: center;
   display: flex;
   justify-content: center;
@@ -14,15 +14,21 @@ export const LoginContainer = styled.div`
   div {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
   }
 
   div a {
     color: #536d82;
   }
+
+  .form-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 `;
 
-export const LoginForm = styled.fieldset`
+export const RegisterForm = styled.fieldset`
   background: #fff;
   padding: 40px;
   border-radius: 10px;

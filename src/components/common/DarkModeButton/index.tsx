@@ -1,4 +1,3 @@
-// src/components/common/DarkModeButton/index.tsx
 import React from 'react';
 import { Button } from './DarkModeStyles'; // Certifique-se de que este caminho está correto
 import { useTheme } from '../../../context/ThemeContext';
@@ -8,7 +7,7 @@ const DarkModeButton: React.FC = () => {
   const { isDarkMode, toggleDarkMode } = useTheme();
 
   return (
-    <Button isDarkMode={isDarkMode} onClick={toggleDarkMode}>
+    <Button as="div" onClick={toggleDarkMode} isDarkMode={isDarkMode}>
       {isDarkMode ? <BsMoonStars /> : <BsSun />}
     </Button>
   );

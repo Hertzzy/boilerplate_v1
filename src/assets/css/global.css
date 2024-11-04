@@ -43,3 +43,27 @@ h6 {
   top: 2%;
   right: 2%;
 }
+
+input {
+  border-radius: 5px;
+  padding: 6px;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+}
+
+input:focus {
+  border-color: #536d82;
+  outline: none;
+}
+
+.error-message {
+  color: white;
+  background-color: rgb(253, 109, 109);
+  display: flex;
+  font-size: 0.8rem;
+  margin: 15px 0;
+  padding-left: 10px;
+  border-radius: 4px;
+}

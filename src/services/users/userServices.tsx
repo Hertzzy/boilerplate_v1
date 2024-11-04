@@ -8,7 +8,11 @@ export const registerUser = (userData: any) => {
       return response;
     })
     .catch(error => {
-      throw new Error(error);
+      if (error.response) {
+        // Retorna a resposta completa da API para inspeção
+        return Promise.reject(error.response);
+      }
+      return Promise.reject(error);
     });
 };
 // Listar todos os usuários

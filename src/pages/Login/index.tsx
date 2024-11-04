@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Navigate, useNavigate } from 'react-router-dom';
-import Input from '../../components/Form/Input/Input';
+import { Navigate, useNavigate, Link } from 'react-router-dom';
+import Input from '../../components/Form/Input';
 import Button from '../../components/common/Buttons/Button';
 import MessageAlert from '../../components/common/MessageAlert';
 import { useAuth } from '../../context/AuthContext';
@@ -64,7 +64,11 @@ const LoginView: React.FC = () => {
                 onChange={e => setPassword_hash(e.target.value)}
               />
             </FormGroup>
-            <Button type="submit">Login</Button>
+            <div className="form-footer">
+              <Button type="submit">Entrar</Button>
+
+              <Link to="/register">Não tenho cadastro</Link>
+            </div>
           </form>
         </LoginForm>
       </LoginContainer>

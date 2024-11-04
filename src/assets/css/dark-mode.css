@@ -52,6 +52,10 @@ body.dark-mode input::placeholder {
 }
 
 .dark-mode .spinner-dark {
-  border: 8px solid #f3f3f3;
+  border: 8px solid #ececec;
   border-top: 8px solid #333;
+}
+
+.dark-mode .form-footer a {
+  color: #ececec;
 }
